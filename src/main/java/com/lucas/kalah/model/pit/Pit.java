@@ -1,4 +1,4 @@
-package com.lucas.kalah.model.Pit;
+package com.lucas.kalah.model.pit;
 
 import lombok.Data;
 

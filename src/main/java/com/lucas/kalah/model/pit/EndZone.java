@@ -1,6 +1,5 @@
-package com.lucas.kalah.model.Pit;
+package com.lucas.kalah.model.pit;
 
-import com.lucas.kalah.model.Pit.Pit;
 import lombok.Data;
 
 @Data

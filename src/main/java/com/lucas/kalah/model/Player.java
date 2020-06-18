@@ -9,4 +9,7 @@ public class Player {
     private String name;
 
     private int lastPitIndex;
+
+    private int firstPitIndex;
+
 }

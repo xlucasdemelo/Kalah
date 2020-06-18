@@ -1,6 +1,4 @@
-package com.lucas.kalah.model.Pit;
-
-import com.lucas.kalah.model.Pit.Pit;
+package com.lucas.kalah.model.pit;
 
 public class House extends Pit {
 

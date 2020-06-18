@@ -1,9 +1,8 @@
-package com.lucas.kalah.model.Move;
+package com.lucas.kalah.model.move;
 
 import com.lucas.kalah.model.Game;
-import com.lucas.kalah.model.Pit.House;
+import com.lucas.kalah.model.pit.House;
 import com.lucas.kalah.model.Turn;
-import com.lucas.kalah.util.KalahConstants;
 
 public class StealMove implements GameMove {
 

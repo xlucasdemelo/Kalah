@@ -1,8 +1,8 @@
 package com.lucas.kalah.model;
 
-import com.lucas.kalah.model.Pit.EndZone;
-import com.lucas.kalah.model.Pit.House;
-import com.lucas.kalah.model.Pit.Pit;
+import com.lucas.kalah.model.pit.EndZone;
+import com.lucas.kalah.model.pit.House;
+import com.lucas.kalah.model.pit.Pit;
 import lombok.Data;
 
 import java.util.ArrayList;

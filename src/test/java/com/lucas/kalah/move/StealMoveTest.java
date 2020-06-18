@@ -1,10 +1,8 @@
-package com.lucas.kalah;
+package com.lucas.kalah.move;
 
 import com.lucas.kalah.model.Board;
 import com.lucas.kalah.model.Game;
-import com.lucas.kalah.model.Move.GameMove;
-import com.lucas.kalah.model.Move.SowMove;
-import com.lucas.kalah.model.Move.StealMove;
+import com.lucas.kalah.model.move.StealMove;
 import com.lucas.kalah.model.Player;
 import com.lucas.kalah.model.Turn;
 import com.lucas.kalah.util.KalahConstants;
@@ -27,8 +25,8 @@ public class StealMoveTest {
 
     @BeforeEach
     public void initializePlayers(){
-        final Player playerOne = new Player(KalahConstants.PLAYER_ONE, 6);
-        final Player playerTwo = new Player(KalahConstants.PLAYER_TWO, 13);
+        final Player playerOne = new Player(KalahConstants.PLAYER_ONE, 6, 0);
+        final Player playerTwo = new Player(KalahConstants.PLAYER_TWO, 13, 7);
 
         this.players.add(playerOne);
         this.players.add(playerTwo);

@@ -1,13 +1,11 @@
-package com.lucas.kalah;
+package com.lucas.kalah.move;
 
 import com.lucas.kalah.model.Board;
 import com.lucas.kalah.model.Game;
-import com.lucas.kalah.model.Move.SowMove;
+import com.lucas.kalah.model.move.SowMove;
 import com.lucas.kalah.model.Player;
 import com.lucas.kalah.model.Turn;
 import com.lucas.kalah.util.KalahConstants;
-import org.hamcrest.core.IsNull;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
@@ -26,8 +24,8 @@ public class SowMoveTest {
 
     @BeforeEach
     public void initializePlayers(){
-        final Player playerOne = new Player(KalahConstants.PLAYER_ONE, 6);
-        final Player playerTwo = new Player(KalahConstants.PLAYER_TWO, 13);
+        final Player playerOne = new Player(KalahConstants.PLAYER_ONE, 6, 0);
+        final Player playerTwo = new Player(KalahConstants.PLAYER_TWO, 13, 7);
 
         this.players.add(playerOne);
         this.players.add(playerTwo);
