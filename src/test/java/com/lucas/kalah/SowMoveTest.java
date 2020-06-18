@@ -2,6 +2,7 @@ package com.lucas.kalah;
 
 import com.lucas.kalah.model.Board;
 import com.lucas.kalah.model.Game;
+import com.lucas.kalah.model.Move.SowMove;
 import com.lucas.kalah.model.Player;
 import com.lucas.kalah.model.Turn;
 import com.lucas.kalah.util.KalahConstants;
@@ -20,7 +21,7 @@ import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.notNullValue;
 
 @RunWith(MockitoJUnitRunner.class)
-public class GameTest {
+public class SowMoveTest {
     private List<Player> players = new ArrayList<Player>();
 
     @BeforeEach
@@ -38,7 +39,8 @@ public class GameTest {
 
         final Turn turn = new Turn(this.players.get(0), 0);
 
-        game.moveSeeds(turn);
+        SowMove sowMove = new SowMove();
+        sowMove.move(game, turn);
 
         Board board = game.getBoard();
 
@@ -56,7 +58,8 @@ public class GameTest {
 
         final Turn turn = new Turn(this.players.get(0), 3);
 
-        game.moveSeeds(turn);
+        SowMove sowMove = new SowMove();
+        sowMove.move(game, turn);
 
         Board board = game.getBoard();
 
@@ -76,7 +79,8 @@ public class GameTest {
 
         final Turn turn = new Turn(this.players.get(0), 5);
 
-        game.moveSeeds(turn);
+        SowMove sowMove = new SowMove();
+        sowMove.move(game, turn);
 
         Board board = game.getBoard();
 
@@ -101,7 +105,8 @@ public class GameTest {
 
         final Turn turn = new Turn(this.players.get(0), 5);
 
-        game.moveSeeds(turn);
+        SowMove sowMove = new SowMove();
+        sowMove.move(game, turn);
 
         Board board = game.getBoard();
 
@@ -126,7 +131,8 @@ public class GameTest {
 
         final Turn turn = new Turn(this.players.get(1), 7);
 
-        game.moveSeeds(turn);
+        SowMove sowMove = new SowMove();
+        sowMove.move(game, turn);
 
         Board board = game.getBoard();
 
@@ -144,7 +150,8 @@ public class GameTest {
 
         final Turn turn = new Turn(this.players.get(1), 9);
 
-        game.moveSeeds(turn);
+        SowMove sowMove = new SowMove();
+        sowMove.move(game, turn);
 
         Board board = game.getBoard();
 
@@ -162,7 +169,8 @@ public class GameTest {
 
         final Turn turn = new Turn(this.players.get(1), 10);
 
-        game.moveSeeds(turn);
+        SowMove sowMove = new SowMove();
+        sowMove.move(game, turn);
 
         Board board = game.getBoard();
 
@@ -180,7 +188,8 @@ public class GameTest {
 
         final Turn turn = new Turn(this.players.get(1), 11);
 
-        game.moveSeeds(turn);
+        SowMove sowMove = new SowMove();
+        sowMove.move(game, turn);
 
         Board board = game.getBoard();
 
@@ -200,7 +209,8 @@ public class GameTest {
 
         final Turn turn = new Turn(this.players.get(1), 12);
 
-        game.moveSeeds(turn);
+        SowMove sowMove = new SowMove();
+        sowMove.move(game, turn);
 
         Board board = game.getBoard();
 

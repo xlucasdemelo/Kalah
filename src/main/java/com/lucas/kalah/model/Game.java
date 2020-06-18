@@ -17,38 +17,12 @@ public class Game {
 
     private List<Player> players;
 
+    private Player currentPLayerTurn;
+
+    private Player nextTurnPlayer;
+
     public Game(List<Player> players){
         this.players = players;
     }
 
-    public void moveSeeds(Turn turn){
-        final int houseIndex = turn.getHouseIndex();
-        final House movePit = (House) this.board.getPits().get(houseIndex);
-
-        int lastPit = houseIndex + movePit.getNumberOfSeeds();
-
-        for (int i = houseIndex + 1; i < lastPit + 1; i++){
-            if ( i > 13 ){
-               i = 0;
-               lastPit = lastPit - 13;
-            }
-
-            int enemyEndZone =
-                    this.players.stream()
-                    .filter( player -> player.getName() != turn.getPlayer().getName() )
-                    .collect(Collectors.toList())
-                    .get(0)
-                    .getLastPitIndex();
-
-            if (i == enemyEndZone) {
-                lastPit ++;
-                continue;
-            };
-
-            final Pit pit = this.board.getPits().get(i);
-            pit.receiveSeeds(1);
-        }
-
-        movePit.moveSeeds();
-    };
 }
