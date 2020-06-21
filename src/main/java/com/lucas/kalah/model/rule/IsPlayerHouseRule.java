@@ -1,6 +1,6 @@
 package com.lucas.kalah.model.rule;
 
-import com.lucas.kalah.model.Turn;
+import com.lucas.kalah.model.game.Turn;
 import com.lucas.kalah.util.KalahConstants;
 import lombok.extern.slf4j.Slf4j;
 

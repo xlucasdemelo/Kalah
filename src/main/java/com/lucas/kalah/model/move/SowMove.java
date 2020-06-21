@@ -1,25 +1,18 @@
 package com.lucas.kalah.model.move;
 
-import com.lucas.kalah.model.Game;
+import com.lucas.kalah.model.game.Game;
+import com.lucas.kalah.model.game.Turn;
 import com.lucas.kalah.model.pit.House;
 import com.lucas.kalah.model.pit.Pit;
-import com.lucas.kalah.model.Turn;
-import com.lucas.kalah.model.rule.GameRule;
 import lombok.AllArgsConstructor;
 
-import java.util.ArrayList;
 import java.util.stream.Collectors;
 
 @AllArgsConstructor
 public class SowMove implements GameMove {
 
     @Override
-    public void validate(ArrayList<GameRule> rules) {
-
-    }
-
-    @Override
-    public void move(Game game, Turn turn) {
+    public Game move(Game game, Turn turn) {
 
         final int houseIndex = turn.getHouseIndex();
         final House movePit = (House) game.getBoard().getPits().get(houseIndex);
@@ -50,10 +43,7 @@ public class SowMove implements GameMove {
 
         movePit.moveSeeds();
 
+        return game;
     }
 
-    @Override
-    public Game outPut() {
-        return null;
-    }
 }

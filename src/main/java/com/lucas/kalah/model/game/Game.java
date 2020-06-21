@@ -1,4 +1,4 @@
-package com.lucas.kalah.model;
+package com.lucas.kalah.model.game;
 
 import lombok.Data;
 
@@ -16,6 +16,10 @@ public class Game {
     private Player currentPLayerTurn;
 
     private Player nextTurnPlayer;
+
+    private Boolean gameOver = Boolean.FALSE;
+
+    private String winner;
 
     public Game(List<Player> players){
         this.players = players;

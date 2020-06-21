@@ -1,10 +1,10 @@
 package com.lucas.kalah.move;
 
-import com.lucas.kalah.model.Board;
-import com.lucas.kalah.model.Game;
+import com.lucas.kalah.model.game.Board;
+import com.lucas.kalah.model.game.Game;
 import com.lucas.kalah.model.move.SowMove;
-import com.lucas.kalah.model.Player;
-import com.lucas.kalah.model.Turn;
+import com.lucas.kalah.model.game.Player;
+import com.lucas.kalah.model.game.Turn;
 import com.lucas.kalah.util.KalahConstants;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

@@ -1,4 +1,4 @@
-package com.lucas.kalah.model;
+package com.lucas.kalah.model.game;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -1,11 +1,10 @@
 package com.lucas.kalah.rule;
 
-import com.lucas.kalah.model.Player;
-import com.lucas.kalah.model.Turn;
+import com.lucas.kalah.model.game.Player;
+import com.lucas.kalah.model.game.Turn;
 import com.lucas.kalah.model.rule.CanMoveRule;
 import com.lucas.kalah.model.rule.GameRule;
 import com.lucas.kalah.util.KalahConstants;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;

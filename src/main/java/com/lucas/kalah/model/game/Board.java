@@ -1,4 +1,4 @@
-package com.lucas.kalah.model;
+package com.lucas.kalah.model.game;
 
 import com.lucas.kalah.model.pit.EndZone;
 import com.lucas.kalah.model.pit.House;
