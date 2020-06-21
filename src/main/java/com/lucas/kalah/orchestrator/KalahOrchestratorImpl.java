@@ -10,11 +10,13 @@ import com.lucas.kalah.model.move.SowMove;
 import com.lucas.kalah.model.move.StealMove;
 import com.lucas.kalah.model.rule.*;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
+@Component
 public class KalahOrchestratorImpl implements KalahOrchestrator {
 
     private Game game;

@@ -27,7 +27,7 @@ public class StealMove implements GameMove {
         stealPit.moveSeeds();
         movePit.moveSeeds();
 
-        log.info(turn.getPlayer().getName() + " Steal House: " + stealPitIndex);
+        log.info(turn.getPlayer().getName() + " Steal House: " + stealPitIndex + " Seeds: " + totalOfSeeds );
 
         return game;
     }

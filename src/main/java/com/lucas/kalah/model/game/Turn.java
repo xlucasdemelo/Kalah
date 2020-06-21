@@ -9,4 +9,5 @@ public class Turn {
     private Player player;
 
     private int houseIndex;
+
 }
