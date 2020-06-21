@@ -14,10 +14,16 @@ public class DefineWinnerRule implements GameRule{
 
     @Override
     public Boolean validate(Turn turn) {
-        return null;
+        final IsGameOverRule isGameOverRule = new IsGameOverRule(this.game);
+        return isGameOverRule.validate(turn);
     }
 
-    public Game defineWinner(){
+    public Game defineWinner(Turn turn){
+        if (!this.validate(turn)){
+            log.info("Game not finished yet");
+            return this.game;
+        }
+
         final Player playerOne = this.game.getPlayers().get(0);
         final Player playerTwo = this.game.getPlayers().get(1);
 

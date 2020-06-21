@@ -10,4 +10,6 @@ public interface KalahService {
     public GameDTO performMove(TurnDTO turnDTO);
 
     public GameDTO getGame();
+
+    public GameDTO restartGame();
 }

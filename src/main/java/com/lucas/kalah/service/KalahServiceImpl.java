@@ -10,6 +10,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+/**
+ * Implementation of Kalah Service
+ */
 @Slf4j
 @Service
 public class KalahServiceImpl implements KalahService {
@@ -23,7 +26,6 @@ public class KalahServiceImpl implements KalahService {
 
     @Override
     public GameDTO performMove(TurnDTO turnDTO) {
-
         Turn turn = this.getTurnFromDTO(turnDTO);
         Game game = this.orchestrator.performMove(turn);
 
@@ -40,6 +42,11 @@ public class KalahServiceImpl implements KalahService {
     @Override
     public GameDTO getGame() {
         return new GameDTO(this.orchestrator.getGame());
+    }
+
+    @Override
+    public GameDTO restartGame() {
+        return new GameDTO(this.orchestrator.restartGame());
     }
 
 }

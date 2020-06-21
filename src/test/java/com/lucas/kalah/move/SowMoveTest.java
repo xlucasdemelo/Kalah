@@ -1,10 +1,7 @@
 package com.lucas.kalah.move;
 
-import com.lucas.kalah.model.game.Board;
-import com.lucas.kalah.model.game.Game;
+import com.lucas.kalah.model.game.*;
 import com.lucas.kalah.model.move.SowMove;
-import com.lucas.kalah.model.game.Player;
-import com.lucas.kalah.model.game.Turn;
 import com.lucas.kalah.util.KalahConstants;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -162,6 +159,26 @@ public class SowMoveTest {
     }
 
     @Test
+    public void PlayerTwoMovesFourthIndex_4NextPitsMustIncrease_EndZoneMustHaveOneValue(){
+        Game game = GameFactory.getGame();
+
+        final Turn turn = new Turn(this.players.get(1), 10);
+
+        SowMove sowMove = new SowMove();
+        sowMove.move(game, turn);
+
+        Board board = game.getBoard();
+
+        assertThat(board, notNullValue());
+        assertThat(board.getPits().get(10).getNumberOfSeeds(), is(0) );
+        assertThat(board.getPits().get(11).getNumberOfSeeds(), is(5) );
+        assertThat(board.getPits().get(12).getNumberOfSeeds(), is(5) );
+        assertThat(board.getPits().get(13).getNumberOfSeeds(), is(1) );
+        assertThat(board.getPits().get(0).getNumberOfSeeds(), is(5) );
+        assertThat(board.getPits().get(1).getNumberOfSeeds(), is(4) );
+    }
+
+    @Test
     public void PlayerTwoMovesFourthIndex_end_zone_must_have_one_value_and_enemy_must_have_one_more(){
         Game game = new Game(this.players);
 
@@ -177,7 +194,8 @@ public class SowMoveTest {
         assertThat(board.getPits().get(11).getNumberOfSeeds(), is(5) );
         assertThat(board.getPits().get(12).getNumberOfSeeds(), is(5) );
         assertThat(board.getPits().get(13).getNumberOfSeeds(), is(1) );
-        assertThat(board.getPits().get(1).getNumberOfSeeds(), is(5) );
+        assertThat(board.getPits().get(0).getNumberOfSeeds(), is(5) );
+        assertThat(board.getPits().get(1).getNumberOfSeeds(), is(4) );
     }
 
     @Test

@@ -3,10 +3,7 @@ package com.lucas.kalah.rule;
 import com.lucas.kalah.model.game.Game;
 import com.lucas.kalah.model.game.GameFactory;
 import com.lucas.kalah.model.game.Player;
-import com.lucas.kalah.model.game.Turn;
-import com.lucas.kalah.model.rule.CanMoveRule;
 import com.lucas.kalah.model.rule.DefineWinnerRule;
-import com.lucas.kalah.model.rule.GameRule;
 import com.lucas.kalah.util.KalahConstants;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -48,7 +45,7 @@ public class DefineWinnerRuleTest {
 
         final DefineWinnerRule rule = new DefineWinnerRule(game);
 
-        game = rule.defineWinner();
+        game = rule.defineWinner(null);
 
         assertThat(game.getWinner(), is(KalahConstants.PLAYER_ONE));
     }
@@ -68,7 +65,7 @@ public class DefineWinnerRuleTest {
 
         final DefineWinnerRule rule = new DefineWinnerRule(game);
 
-        game = rule.defineWinner();
+        game = rule.defineWinner(null);
 
         assertThat(game.getWinner(), is(KalahConstants.PLAYER_TWO));
     }
@@ -79,7 +76,7 @@ public class DefineWinnerRuleTest {
 
         final DefineWinnerRule rule = new DefineWinnerRule(game);
 
-        game = rule.defineWinner();
+        game = rule.defineWinner(null);
 
         assertThat(game.getWinner(), is(KalahConstants.DRAW));
     }

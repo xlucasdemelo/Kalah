@@ -22,7 +22,7 @@ public class SowMove implements GameMove {
         for (int i = houseIndex + 1; i < lastPit + 1; i++){
             if ( i > 13 ){
                 i = 0;
-                lastPit = lastPit - 13;
+                lastPit = lastPit - 14;
             }
 
             int enemyEndZone =

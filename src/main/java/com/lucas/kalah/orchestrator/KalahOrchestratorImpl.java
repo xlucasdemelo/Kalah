@@ -21,11 +21,19 @@ public class KalahOrchestratorImpl implements KalahOrchestrator {
 
     private Game game;
 
-    final List<GameRule> rules = new ArrayList<GameRule>();
+    List<GameRule> rules = new ArrayList<GameRule>();
 
     public KalahOrchestratorImpl(){
         this.game = GameFactory.getGame();
         log.info("Starting game: " + this.game);
+    }
+
+    @Override
+    public Game restartGame(){
+        this.game = GameFactory.getGame();
+        log.info("Starting a new game");
+
+        return this.game;
     }
 
     @Override
@@ -35,13 +43,16 @@ public class KalahOrchestratorImpl implements KalahOrchestrator {
             this.validateMove(turn);
         } catch (GameValidationException e) {
             log.error(e.getMessage());
-            //TODO: Create dto
-            return null;
+
+            //if any validation error occurs return the game as it is (No changes were made)
+            return this.game;
         }
 
+        //Validate if after the move the user will steal opponents pit
         final Boolean canStealOpponent = this.canStealOpponent(turn);
         int lastPitIndex = CalculateLastPitSeed.calculate(game, turn);
 
+        //This will perform the sow move
         final GameMove sowMove = new SowMove();
         this.game = sowMove.move(game, turn);
 
@@ -55,23 +66,25 @@ public class KalahOrchestratorImpl implements KalahOrchestrator {
         final SetGameOverRule setGameOverRule = new SetGameOverRule(this.game);
         this.game = setGameOverRule.setGameOver(turn);
 
-        //TODO fix this class, remove implements
         final DefineWinnerRule defineWinnerRule = new DefineWinnerRule(this.game);
-        this.game = defineWinnerRule.defineWinner();
+        this.game = defineWinnerRule.defineWinner(turn);
 
         return game;
     }
 
     private Boolean validateMove(Turn turn) throws GameValidationException {
+        this.rules = new ArrayList<GameRule>();
         final GameRule isGameOver = new IsGameOverRule(this.game);
         final GameRule isPlayerTurnRule = new IsPlayerTurnRule(this.game);
-        final GameRule canMoveRule = new CanMoveRule();
+        final GameRule canMoveRule = new IsMoveInsideBounds();
         final GameRule isPlayerTurnHouseRule = new IsPlayerHouseRule();
+        final GameRule isNotEndZoneRule = new IsNotEndZoneRule();
 
         this.rules.add(isGameOver);
         this.rules.add(isPlayerTurnRule);
         this.rules.add(canMoveRule);
         this.rules.add(isPlayerTurnHouseRule);
+        this.rules.add(isNotEndZoneRule);
 
         for ( GameRule rule : this.rules) {
             Boolean isValid = rule.validate(turn);

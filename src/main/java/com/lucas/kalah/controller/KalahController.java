@@ -49,4 +49,10 @@ public class KalahController {
         return new ResponseEntity<GameDTO>(gameDTO, HttpStatus.OK);
     }
 
+    @PatchMapping(value = "/restartGame")
+    public ResponseEntity<GameDTO> restartGame(){
+        final GameDTO gameDTO = this.kalahService.restartGame();
+
+        return new ResponseEntity<GameDTO>(gameDTO, HttpStatus.OK);
+    }
 }
