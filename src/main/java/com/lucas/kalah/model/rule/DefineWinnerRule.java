@@ -14,8 +14,8 @@ public class DefineWinnerRule implements GameRule{
 
     @Override
     public Boolean validate(Turn turn) {
-        final IsGameOverRule isGameOverRule = new IsGameOverRule(this.game);
-        return isGameOverRule.validate(turn);
+        final IsGameNotOverRule isGamenNotOverRule = new IsGameNotOverRule(this.game);
+        return !isGamenNotOverRule.validate(turn);
     }
 
     public Game defineWinner(Turn turn){

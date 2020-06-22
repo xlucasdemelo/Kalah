@@ -27,7 +27,7 @@ public class SwaggerConfiguration {
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.lucas.kallah"))
+                .apis(RequestHandlerSelectors.basePackage("com.lucas.kalah"))
                 .paths(PathSelectors.any())
                 .build()
                 .apiInfo(new ApiInfoBuilder().title("kalah Game API").build());

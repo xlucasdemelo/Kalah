@@ -74,17 +74,19 @@ public class KalahOrchestratorImpl implements KalahOrchestrator {
 
     private Boolean validateMove(Turn turn) throws GameValidationException {
         this.rules = new ArrayList<GameRule>();
-        final GameRule isGameOver = new IsGameOverRule(this.game);
+        final GameRule isGameNotOver = new IsGameNotOverRule(this.game);
         final GameRule isPlayerTurnRule = new IsPlayerTurnRule(this.game);
-        final GameRule canMoveRule = new IsMoveInsideBounds();
-        final GameRule isPlayerTurnHouseRule = new IsPlayerHouseRule();
+        final GameRule isMoveInsideBounds = new IsMoveInsideBounds();
+        final GameRule isPlayerHouseRule = new IsPlayerHouseRule();
         final GameRule isNotEndZoneRule = new IsNotEndZoneRule();
+        final GameRule houseHasSeedsRule = new HouseHasSeedsRule(this.game);
 
-        this.rules.add(isGameOver);
+        this.rules.add(isGameNotOver);
         this.rules.add(isPlayerTurnRule);
-        this.rules.add(canMoveRule);
-        this.rules.add(isPlayerTurnHouseRule);
+        this.rules.add(isMoveInsideBounds);
+        this.rules.add(isPlayerHouseRule);
         this.rules.add(isNotEndZoneRule);
+        this.rules.add(houseHasSeedsRule);
 
         for ( GameRule rule : this.rules) {
             Boolean isValid = rule.validate(turn);

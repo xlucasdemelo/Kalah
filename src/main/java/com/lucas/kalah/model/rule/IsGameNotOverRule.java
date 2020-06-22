@@ -5,7 +5,7 @@ import com.lucas.kalah.model.game.Turn;
 import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
-public class IsGameOverRule implements GameRule{
+public class IsGameNotOverRule implements GameRule{
 
     private Game game;
 
