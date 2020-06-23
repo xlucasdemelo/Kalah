@@ -29,32 +29,25 @@ to start the application:
 mvn spring-boot:run
 ```
 
-### Conception
+### Running With Docker
 
-Basically this application have two main Interfaces:  
-- GameMove: A interface that will MOVE a seed from the board 
-- GameRule: A interface that is used to validate a rule from the game
-
-The state of the game is represented by the class Game.  
-The Orchestrator class is responsible to apply the GameRules, the GameMoves and return the state of the game to the service
-
-A Controller class exposes the interactions of the game, all the communication is done via DTOs  
-A Service class is used to apply some logic to the DTO and call the Orchestrator, for future work this can be used to store data into the DB
-
-### Running tests
-
-Execute the following command:
+1.Build a app jar
 
 ```
-mvn test
+mvn package -DskipTests
 ```
 
-### Unit tests
--All GameRules and GameMoves have their own tests
+2.Build Docker image
 
-### Integration tests
-- Since i dont have any logic in service or controller, i did not wrote tests for these classes, the "integration tests" are being done via the Orchestrator class   
+```
+docker build -t kalah-service .
+```
 
+3.Run Docker image
+
+```
+ docker run -it -d --name kalah-service -p 8080:8080  kalah-service
+```
 
 ### Sample requests
 
@@ -87,13 +80,40 @@ curl http://localhost:8080/api/kalah/
 4.Restart the game:
 
 ```
-curl http://localhost:8080/api/kalah/
+curl --request PATCH http://localhost:8080/api/kalah/restartGame
 ```
 
 *To check a example of response access the swagger UI at
 ```
 http://localhost:8080/swagger-ui.html#/
 ```
+
+### Conception
+
+Basically this application have two main Interfaces:  
+- GameMove: A interface that will MOVE a seed from the board 
+- GameRule: A interface that is used to validate a rule from the game
+
+The state of the game is represented by the class Game.  
+The Orchestrator class is responsible to apply the GameRules, the GameMoves and return the state of the game to the service
+
+A Controller class exposes the interactions of the game, all the communication is done via DTOs  
+A Service class is used to apply some logic to the DTO and call the Orchestrator, for future work this can be used to store data into the DB
+
+### Running tests
+
+Execute the following command:
+
+```
+mvn test
+```
+
+### Unit tests
+-All GameRules and GameMoves have their own tests
+
+### Integration tests
+- Since i dont have any logic in service or controller, i did not wrote tests for these classes, the "integration tests" are being done via the Orchestrator class   
+
 
 ### Documentation
 
