@@ -3,17 +3,20 @@ package com.lucas.kalah.rule;
 import com.lucas.kalah.model.game.Game;
 import com.lucas.kalah.model.game.GameFactory;
 import com.lucas.kalah.model.game.Player;
+import com.lucas.kalah.model.game.Turn;
 import com.lucas.kalah.model.rule.DefineWinnerRule;
 import com.lucas.kalah.util.KalahConstants;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
+import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.any;
 import static org.hamcrest.Matchers.is;
 
 @RunWith(MockitoJUnitRunner.class)
